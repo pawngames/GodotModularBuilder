@@ -17,17 +17,18 @@ func _ready():
 	pass
 
 func _process(delta):
-	$Vehicle/CamRefX.scale = lerp(scale, Vector3.ONE * zoom, zoom_speed)
+	$CamRefX.scale = lerp(scale, Vector3.ONE * zoom, zoom_speed)
+	$CamRefX.global_transform.origin = $Vehicle.global_transform.origin
 	pass
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and btn_down:
 		if event.relative.x != 0:
 			var dir = 1 if invert_x else -1
-			$Vehicle/CamRefX.rotate_object_local(Vector3.UP, dir * event.relative.x * mouse_sensitivity)
+			$CamRefX.rotate_object_local(Vector3.UP, dir * event.relative.x * mouse_sensitivity)
 		if event.relative.y != 0:
 			var dir = 1 if invert_y else -1
-			$Vehicle/CamRefX/CamRefY.rotate_object_local(Vector3.FORWARD, dir * event.relative.y * mouse_sensitivity)
+			$CamRefX/CamRefY.rotate_object_local(Vector3.FORWARD, dir * event.relative.y * mouse_sensitivity)
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_WHEEL_UP:
 			zoom -= zoom_speed
