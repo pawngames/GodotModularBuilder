@@ -5,14 +5,14 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="CubeMesh" id=2]
 
 [node name="Module" type="CollisionShape"]
 shape = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Model" type="MeshInstance" parent="."]
-mesh = SubResource( 3 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="SnapArea" parent="." instance=ExtResource( 1 )]

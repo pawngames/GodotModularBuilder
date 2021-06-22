@@ -9,5 +9,3 @@ mass = 5.0
 script = ExtResource( 2 )
 
 [node name="Module" parent="." instance=ExtResource( 1 )]
-
-[connection signal="block_add" from="Module" to="." method="_on_Module_block_add"]

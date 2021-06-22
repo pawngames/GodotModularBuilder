@@ -13,7 +13,7 @@ func _on_IndicatorArea_mouse_entered():
 	pass
 
 func _on_IndicatorArea_mouse_exited():
-	$Indicator.visible = true
+	$Indicator.visible = false
 	pass
 
 func _on_IndicatorArea_input_event(camera, event, click_position:Vector3, click_normal, shape_idx):
@@ -23,7 +23,7 @@ func _on_IndicatorArea_input_event(camera, event, click_position:Vector3, click_
 			emit_signal("indicator_pressed", click_position, click_normal, false)
 		if event.button_index == BUTTON_MASK_LEFT and event.pressed:
 			print("clicked_l")
-			emit_signal("indicator_pressed", click_position, click_normal, true)
+			emit_signal("indicator_pressed", $Indicator.global_transform.origin, click_normal, true)
 	if event is InputEventMouseMotion:
 		#$Indicator.global_transform.basis = align_with_y($Indicator.global_transform.basis, click_normal)
 		$Indicator.global_transform.origin = click_position.snapped(Vector3.ONE) + transform.origin

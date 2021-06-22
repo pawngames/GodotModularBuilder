@@ -14,16 +14,14 @@ func _process(delta):
 	forces.clear()
 	pass
 
-func _block_added(pos):
+func _block_added(pos, normal):
+	var new_module_scene = load("res://src/Module.tscn").duplicate(true)
+	var new_module = new_module_scene.instance()
+	add_child(new_module)
+	new_module.global_transform.origin = pos + normal
+	new_module.connect("block_add", self, "_block_added")
 	pass
 
 func _block_input(direction, pos):
 	forces.append([direction, pos])
 	pass
-
-func _on_Module_block_add(pos, normal):
-	var new_module_scene = load("res://src/Module.tscn").duplicate(true)
-	var new_module = new_module_scene.instance()
-	add_child(new_module)
-	new_module.global_transform.origin = pos + normal
-	pass # Replace with function body.

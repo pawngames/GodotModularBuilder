@@ -30,3 +30,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0
 
 [node name="Camera" type="Camera" parent="Vehicle/CamRefX/CamRefY"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.67721, 0.584959, -0.446329, 0, 0.606599, 0.795008, 0.73579, -0.538387, 0.410795, 0, 14.635, 0 )
+shadow_enabled = true
