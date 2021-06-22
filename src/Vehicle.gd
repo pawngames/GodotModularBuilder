@@ -20,6 +20,7 @@ func _block_added(pos, normal):
 	add_child(new_module)
 	new_module.global_transform.origin = pos + normal
 	new_module.connect("block_add", self, "_block_added")
+	new_module.connect("block_input_pressed", self, "_block_input")
 	pass
 
 func _block_input(direction, pos):
