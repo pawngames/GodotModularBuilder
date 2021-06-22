@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Module.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Vehicle.gd" type="Script" id=2]
+
+[node name="Vehicle" type="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mass = 5.0
+script = ExtResource( 2 )
+
+[node name="Module" parent="." instance=ExtResource( 1 )]
+
+[connection signal="block_add" from="Module" to="." method="_on_Module_block_add"]
