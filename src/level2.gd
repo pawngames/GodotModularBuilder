@@ -30,13 +30,14 @@ func _unhandled_input(event):
 			var dir = 1 if invert_y else -1
 			$CamRefX/CamRefY.rotate_object_local(Vector3.FORWARD, dir * event.relative.y * mouse_sensitivity)
 	if event is InputEventMouseButton:
+		print(event.button_index)
 		if event.button_index == BUTTON_WHEEL_UP:
 			zoom -= zoom_speed
 		if event.button_index == BUTTON_WHEEL_DOWN:
 			zoom += zoom_speed
-		if event.button_index == BUTTON_MASK_RIGHT and event.pressed:
+		if event.button_index == BUTTON_MIDDLE and event.pressed:
 			btn_down = true
-		if event.button_index == BUTTON_MASK_RIGHT and !event.pressed:
+		if event.button_index == BUTTON_MIDDLE and !event.pressed:
 			btn_down = false
 		zoom = clamp(zoom, min_zoom, max_zoom)
 	pass

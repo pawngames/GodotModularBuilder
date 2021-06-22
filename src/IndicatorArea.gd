@@ -26,5 +26,4 @@ func _on_IndicatorArea_input_event(camera, event, click_position:Vector3, click_
 			emit_signal("indicator_pressed", click_normal + global_transform.origin, click_normal, true)
 	if event is InputEventMouseMotion:
 		$Indicator.global_transform.origin = click_normal*2 + global_transform.origin
-		print(click_normal)
 	pass
