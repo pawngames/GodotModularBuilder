@@ -7,7 +7,7 @@
 
 [sub_resource type="CubeMesh" id=2]
 
-[node name="Module" type="CollisionShape"]
+[node name="BuildModule" type="CollisionShape"]
 shape = SubResource( 1 )
 script = ExtResource( 2 )
 

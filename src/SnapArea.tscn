@@ -1,41 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/IndicatorArea.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
-margin = 0.1
-extents = Vector3( 1.05, 1.05, 1.05 )
+extents = Vector3( 1.001, 1.001, 1.001 )
 
 [sub_resource type="CubeMesh" id=2]
-size = Vector3( 0.05, 1, 0.05 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 1, 0, 0, 1 )
-
-[sub_resource type="PrismMesh" id=4]
-size = Vector3( 0.2, 0.2, 0.05 )
-
-[sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 1, 0, 0, 1 )
 
 [node name="SnapArea" type="Area"]
 script = ExtResource( 1 )
 
 [node name="IndicatorShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0108113, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="Indicator" type="Spatial" parent="."]
 
 [node name="IndicatorShape" type="MeshInstance" parent="Indicator"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
-
-[node name="Point" type="MeshInstance" parent="Indicator/IndicatorShape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
 
 [connection signal="input_event" from="." to="." method="_on_IndicatorArea_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_IndicatorArea_mouse_entered"]

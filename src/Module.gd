@@ -1,5 +1,7 @@
 extends CollisionShape
 
+class_name BuildModule
+
 signal block_input_pressed(direction, pos)
 signal block_add(pos, normal)
 signal block_remove(id)

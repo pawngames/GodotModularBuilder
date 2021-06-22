@@ -3,8 +3,8 @@ extends RigidBody
 var forces:Array = []
 
 func _ready():
-	$Module.connect("block_input_pressed", self, "_block_input")
-	$Module.connect("block_add", self, "_block_added")
+	$BuildModule.connect("block_input_pressed", self, "_block_input")
+	$BuildModule.connect("block_add", self, "_block_added")
 	pass
 
 func _process(delta):
@@ -15,7 +15,7 @@ func _process(delta):
 	pass
 
 func _block_added(pos, normal):
-	var new_module_scene = load("res://src/Module.tscn").duplicate(true)
+	var new_module_scene = load("res://src/BuildModule.tscn").duplicate(true)
 	var new_module = new_module_scene.instance()
 	add_child(new_module)
 	new_module.global_transform.origin = pos + normal
