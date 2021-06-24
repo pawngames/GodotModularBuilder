@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "BuildModule",
 "language": "GDScript",
 "path": "res://src/Module.gd"
+}, {
+"base": "Area",
+"class": "SnapArea",
+"language": "GDScript",
+"path": "res://src/IndicatorArea.gd"
+}, {
+"base": "BuildModule",
+"class": "WheelModule",
+"language": "GDScript",
+"path": "res://src/blocks/WheelModule.gd"
 } ]
 _global_script_class_icons={
-"BuildModule": ""
+"BuildModule": "res://assets/module_icon.svg",
+"SnapArea": "",
+"WheelModule": ""
 }
 
 [application]
@@ -59,6 +71,7 @@ ui_brake={
 
 [physics]
 
+common/physics_fps=120
 3d/physics_engine="GodotPhysics"
 
 [rendering]

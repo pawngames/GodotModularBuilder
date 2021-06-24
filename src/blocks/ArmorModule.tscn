@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/blocks/ArmorModule.gd" type="Script" id=1]
+[ext_resource path="res://src/SnapArea.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="ArmorModule" type="CollisionShape"]
+shape = SubResource( 1 )
+script = ExtResource( 1 )
+block_mass = 5.0
+block_name = "Armor Block"
+
+[node name="Model" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="SnapArea" parent="." instance=ExtResource( 2 )]
+
+[connection signal="indicator_pressed" from="SnapArea" to="." method="_on_SnapArea_indicator_pressed"]

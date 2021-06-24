@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333332 4.2333335"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="module_icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="16px"
+     inkscape:snap-global="false"
+     inkscape:zoom="5.0671718"
+     inkscape:cx="3.15758"
+     inkscape:cy="21.017642"
+     inkscape:window-width="1640"
+     inkscape:window-height="1025"
+     inkscape:window-x="40"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#ff8080;stroke-width:0.699064;stroke-linecap:square;stroke-dashoffset:98.5;paint-order:markers stroke fill"
+       id="rect846"
+       width="1.5994825"
+       height="1.5994825"
+       x="0.66517365"
+       y="2.3787696"
+       ry="0.33413383" />
+    <rect
+       style="fill:#ff8080;stroke-width:0.699064;stroke-linecap:square;stroke-dashoffset:98.5;paint-order:markers stroke fill"
+       id="rect846-3"
+       width="1.5994825"
+       height="1.5994825"
+       x="2.3614304"
+       y="2.3787696"
+       ry="0.33413383" />
+    <rect
+       style="fill:#ff8080;stroke-width:0.699064;stroke-linecap:square;stroke-dashoffset:98.5;paint-order:markers stroke fill"
+       id="rect846-6"
+       width="1.5994825"
+       height="1.5994825"
+       x="2.3614304"
+       y="0.65842021"
+       ry="0.33413383" />
+    <rect
+       style="fill:#ff8080;stroke-width:0.699064;stroke-linecap:square;stroke-dashoffset:98.5;paint-order:markers stroke fill"
+       id="rect846-7"
+       width="1.5994825"
+       height="1.5994825"
+       x="-0.89561552"
+       y="0.8812654"
+       ry="0.33413383"
+       transform="rotate(-45)" />
+  </g>
+</svg>

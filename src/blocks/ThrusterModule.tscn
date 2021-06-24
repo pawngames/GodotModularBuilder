@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/SnapArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/blocks/ThrusterModule.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="PrismMesh" id=2]
+
+[node name="ThrusterModule" type="CollisionShape"]
+shape = SubResource( 1 )
+script = ExtResource( 2 )
+block_mass = 5.0
+block_name = "Thruster Block"
+engine_force = 2.0
+
+[node name="Model" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="SnapArea" parent="." instance=ExtResource( 1 )]
+
+[connection signal="indicator_pressed" from="SnapArea" to="." method="_on_SnapArea_indicator_pressed"]

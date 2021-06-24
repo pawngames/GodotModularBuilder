@@ -8,7 +8,8 @@ extents = Vector3( 1.001, 1.001, 1.001 )
 [sub_resource type="CubeMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 1, 0, 0, 1 )
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 0.490196 )
 
 [node name="SnapArea" type="Area"]
 script = ExtResource( 1 )
@@ -17,6 +18,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Indicator" type="Spatial" parent="."]
+visible = false
 
 [node name="IndicatorShape" type="MeshInstance" parent="Indicator"]
 mesh = SubResource( 2 )

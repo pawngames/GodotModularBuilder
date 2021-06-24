@@ -5,7 +5,7 @@ var invert_x = false
 var mouse_control = false
 var mouse_sensitivity = 0.005
 
-var max_zoom = 10.0
+var max_zoom = 3.0
 var min_zoom = 0.5
 var zoom_speed = 0.2
 
@@ -17,20 +17,23 @@ func _ready():
 	pass
 
 func _process(delta):
-	$CamRefX.scale = lerp(scale, Vector3.ONE * zoom, zoom_speed)
-	$CamRefX.global_transform.origin = $Vehicle.global_transform.origin
+	scale = lerp(scale, Vector3.ONE * zoom, zoom_speed)
+	global_transform.origin = $"../Vehicle".global_transform.origin
+	if Input.is_action_pressed("ui_accel"):
+		rotation.y = lerp_angle(rotation.y, $"../Vehicle".rotation.y - PI/2, .03)
+	if Input.is_action_pressed("ui_brake"):
+		rotation.y = lerp_angle(rotation.y, $"../Vehicle".rotation.y + PI/2, .03)
 	pass
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and btn_down:
 		if event.relative.x != 0:
 			var dir = 1 if invert_x else -1
-			$CamRefX.rotate_object_local(Vector3.UP, dir * event.relative.x * mouse_sensitivity)
+			rotate_object_local(Vector3.UP, dir * event.relative.x * mouse_sensitivity)
 		if event.relative.y != 0:
 			var dir = 1 if invert_y else -1
-			$CamRefX/CamRefY.rotate_object_local(Vector3.FORWARD, dir * event.relative.y * mouse_sensitivity)
+			$CamRefY.rotate_object_local(Vector3.FORWARD, dir * event.relative.y * mouse_sensitivity)
 	if event is InputEventMouseButton:
-		print(event.button_index)
 		if event.button_index == BUTTON_WHEEL_UP:
 			zoom -= zoom_speed
 		if event.button_index == BUTTON_WHEEL_DOWN:
