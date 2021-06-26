@@ -4,10 +4,17 @@ class_name SnapArea
 
 signal indicator_pressed(pos, normal, left)
 
+var target_rot = Vector3.ZERO
+
 func _ready():
 	pass
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_page_up"):
+		target_rot.x += PI/2
+	if Input.is_action_just_pressed("ui_page_down"):
+		target_rot.x -= PI/2
+	$Indicator.rotation.x = lerp_angle($Indicator.rotation.x, target_rot.x, .4)
 	pass
 
 func _on_IndicatorArea_mouse_entered():

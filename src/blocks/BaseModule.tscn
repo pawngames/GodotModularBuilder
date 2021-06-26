@@ -1,16 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/blocks/ArmorModule.gd" type="Script" id=1]
+[ext_resource path="res://src/blocks/BaseModule.gd" type="Script" id=1]
 [ext_resource path="res://src/SnapArea.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/3d/blocks/armor_block.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/3d/blocks/control_module.tres" type="ArrayMesh" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
-[node name="ArmorModule" type="CollisionShape"]
+[node name="BaseModule" type="CollisionShape"]
 shape = SubResource( 1 )
 script = ExtResource( 1 )
-block_mass = 10.0
-block_name = "Armor Block"
 
 [node name="Model" type="MeshInstance" parent="."]
 mesh = ExtResource( 3 )

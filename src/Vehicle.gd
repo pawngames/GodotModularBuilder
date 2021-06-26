@@ -1,4 +1,4 @@
-extends RigidBody
+extends VehicleBody
 
 var forces:Dictionary = {}
 var torques:Dictionary = {}
@@ -9,13 +9,14 @@ var modules:Array = [
 	"res://src/blocks/WheelSteerModule.tscn",
 	"res://src/blocks/WheelModule.tscn"
 ]
+
 var selected:String = "res://src/blocks/ArmorModule.tscn"
 
 func _ready():
-	$ArmorModule.connect("block_torque_add", self, "_block_input")
-	$ArmorModule.connect("block_impulse_add", self, "_block_input")
-	$ArmorModule.connect("block_add", self, "_block_added")
-	$ArmorModule.connect("block_remove", self, "_block_removed")
+	$BaseModule.connect("block_torque_add", self, "_block_input")
+	$BaseModule.connect("block_impulse_add", self, "_block_input")
+	$BaseModule.connect("block_add", self, "_block_added")
+	$BaseModule.connect("block_remove", self, "_block_removed")
 	pass
 
 func _process(delta):
@@ -34,18 +35,20 @@ func _physics_process(delta):
 	#torques.clear()
 	pass
 
-func _block_removed(id:BuildModule):
+func _block_removed(id):
 	mass -= id.block_mass
 	weight = mass*gravity_scale*9.8
 	remove_child(id)
 	_recalculate_cm()
+	apply_central_impulse(Vector3.UP*mass)
 	pass
 
-func _block_added(pos, normal):
+func _block_added(pos:Vector3, normal):
 	var new_module_scene = load(selected).duplicate(true)
 	var new_module = new_module_scene.instance()
+	print(pos.direction_to(global_transform.origin))
+	new_module.translate_object_local(to_local(pos + normal))
 	add_child(new_module)
-	new_module.global_transform.origin = pos + normal
 	new_module.connect("block_add", self, "_block_added")
 	new_module.connect("block_impulse_add", self, "_block_impulse")
 	new_module.connect("block_torque_add", self, "_block_torque")
@@ -53,34 +56,38 @@ func _block_added(pos, normal):
 	mass += new_module.block_mass
 	weight = mass*gravity_scale*9.8
 	_recalculate_cm()
-	apply_central_impulse(Vector3.UP)
+	apply_central_impulse(Vector3.UP*mass)
 	pass
 
+#Since we can't change the center of mass.
+#We relocate all blocks instead
 func _recalculate_cm():
 	#assuming equal mass for every block
 	var start_pos = global_transform.origin
 	var new_cm = Vector3.ZERO
 	var count = 0.0
 	for child in get_children():
-		if child is BuildModule:
+		if child is BuildModule or child is WheelModule:
 			count += child.block_mass
 			new_cm += child.transform.origin*child.block_mass
 	new_cm /= count
+	global_transform.origin = to_global(new_cm)
+	#Wheel modules are stubborn, they
+	#Never change positions correctly
 	for child in get_children():
-		if child is BuildModule:
-			child.transform.origin -= new_cm
-	global_transform.origin -= new_cm.rotated(Vector3.UP, PI/2)
+		if child is BuildModule or child is WheelModule:
+			child.translate_object_local(-new_cm)
+	print(global_transform.origin)
 	$CM.transform.origin = Vector3.ZERO
 	pass
 
 func _block_impulse(direction, pos):
-	#forces[pos] = direction
 	apply_central_impulse(direction)
+	#apply_impulse(pos, direction)
 	pass
 
-func _block_torque(direction, pos):
-	#torques[pos] = direction
-	apply_torque_impulse(direction*2)
+func _block_torque(direction:Vector3, pos:Vector3):
+	apply_torque_impulse(direction)
 	pass	
 
 func _unhandled_key_input(event):

@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/IndicatorArea.gd"
 }, {
-"base": "BuildModule",
+"base": "VehicleWheel",
 "class": "WheelModule",
 "language": "GDScript",
 "path": "res://src/blocks/WheelModule.gd"

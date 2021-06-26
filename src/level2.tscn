@@ -51,7 +51,7 @@ Left click - add block
 "
 
 [node name="Vehicle" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 4, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.78091, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.67721, 0.584959, -0.446329, 0, 0.606599, 0.795008, 0.73579, -0.538387, 0.410795, 0, 14.635, 0 )
@@ -85,9 +85,9 @@ depth = 390.0
 
 [node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.947042, 0.321109, 0, -0.321109, 0.947042, 0, 0, 0, 1, -54.171, -2.08635, 0 )
-width = 18.5579
+width = 25.2536
 height = 1.84841
-depth = 25.2378
+depth = 39.8168
 
 [node name="CSGCylinder" type="CSGCylinder" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 188.944, 7.5, 0 )
@@ -95,3 +95,36 @@ operation = 2
 radius = 12.5
 height = 390.0
 sides = 32
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 2.067, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -35.7308, -4.93264, 114.392 )
+height = 28.2999
+
+[node name="CSGCylinder3" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 2.067, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -30.0902, -4.93264, 114.392 )
+height = 28.2999
+
+[node name="CSGCylinder4" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 2.067, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -23.8133, -4.93264, 114.392 )
+height = 28.2999
+
+[node name="CSGCylinder5" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 2.067, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -17.262, -4.93264, 114.392 )
+height = 28.2999
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -44.4545, -5, -66.1853 )
+width = 4.0
+height = 4.0
+depth = 4.0
+
+[node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -65.6545, -5, -66.1853 )
+width = 4.0
+height = 4.0
+depth = 4.0
+
+[node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.0617, -3.2, -66.1882 )
+width = 21.2
+depth = 3.90938

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/IndicatorArea.gd" type="Script" id=1]
 
@@ -11,6 +11,15 @@ extents = Vector3( 1.001, 1.001, 1.001 )
 flags_transparent = true
 albedo_color = Color( 1, 0, 0, 0.490196 )
 
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.5, 0.5, 1.5 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="PrismMesh" id=6]
+size = Vector3( 1, 0.5, 0.5 )
+
 [node name="SnapArea" type="Area"]
 script = ExtResource( 1 )
 
@@ -18,11 +27,20 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Indicator" type="Spatial" parent="."]
-visible = false
 
 [node name="IndicatorShape" type="MeshInstance" parent="Indicator"]
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
+
+[node name="Arrow" type="MeshInstance" parent="Indicator"]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, 1, -1, 4.37114e-08, -4.37114e-08, 0, -0.2, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="Point" type="MeshInstance" parent="Indicator/Arrow"]
+transform = Transform( 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0.9 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 5 )
 
 [connection signal="input_event" from="." to="." method="_on_IndicatorArea_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_IndicatorArea_mouse_entered"]

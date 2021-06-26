@@ -1,25 +1,38 @@
-extends BuildModule
+extends VehicleWheel
 
 class_name WheelModule
 
-export var wheel_force:float = 5.0
+signal block_torque_add(direction, pos)
+signal block_impulse_add(direction, pos)
+signal block_add(pos, normal)
+signal block_remove(id)
+
+export var wheel_increment:float = 1.0
+export var wheel_max_force:float = 1500.0
 var wheel_spin:float = 0.0
+
+export var block_mass:float = 1.0
+export var block_health:float = 100.0
+export var block_name:String = "BaseBlock"
 
 func _ready():
 	pass
 
 func _physics_process(delta):
 	#updates wheel direction
-	block_force_direction = -global_transform.basis.z*wheel_force
 	if Input.is_action_pressed("ui_accel"):
-		if $RayCast.is_colliding():
-			emit_signal("block_impulse_add", block_force_direction, transform.origin)
-		wheel_spin += 0.01
+		engine_force += 10.0
 	elif Input.is_action_pressed("ui_brake"):
-		if $RayCast.is_colliding():
-			emit_signal("block_impulse_add", -block_force_direction, transform.origin)
-		wheel_spin -= 0.01
+		engine_force -= 10.0
 	else:
-		wheel_spin = lerp_angle(wheel_spin, 0.0, 0.1)
-	$Model.rotation += Vector3.UP*wheel_spin
+		engine_force = lerp(engine_force, 0.0, 0.1)
+	engine_force = clamp(engine_force, -wheel_max_force/4, wheel_max_force)
+	print(engine_force)
+	pass
+
+func _on_SnapArea_indicator_pressed(pos, normal, left):
+	if left:
+		emit_signal("block_add", pos, normal)
+	else:
+		emit_signal("block_remove", self)
 	pass
