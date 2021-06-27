@@ -1,8 +1,6 @@
 # GodotModularBuilder
 Godot modular physics object builder
 
-Godot modular physics object builder
-
 What this project got so far:
 - A Physics Object node structure
 - Module mechanic that allow adding and removing blocks and visual indication of positioning (still buggy, working but lacks a global positioning reference for block adding).
