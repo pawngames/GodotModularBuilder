@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/gyro_module.obj-f17cd318132cb0468788629feffa3357.mesh"
+
+[deps]
+
+files=[ "res://.import/gyro_module.obj-f17cd318132cb0468788629feffa3357.mesh" ]
+
+source_file="res://assets/3d/blocks/gyro_module.obj"
+dest_files=[ "res://.import/gyro_module.obj-f17cd318132cb0468788629feffa3357.mesh", "res://.import/gyro_module.obj-f17cd318132cb0468788629feffa3357.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

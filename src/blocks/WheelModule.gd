@@ -4,7 +4,7 @@ class_name WheelModule
 
 signal block_torque_add(direction, pos)
 signal block_impulse_add(direction, pos)
-signal block_add(pos, normal)
+signal block_add(pos, normal, orientation)
 signal block_remove(id)
 
 export var wheel_increment:float = 1.0
@@ -30,9 +30,9 @@ func _physics_process(delta):
 	print(engine_force)
 	pass
 
-func _on_SnapArea_indicator_pressed(pos, normal, left):
+func _on_SnapArea_indicator_pressed(pos, normal, orientation, left):
 	if left:
-		emit_signal("block_add", pos, normal)
+		emit_signal("block_add", pos, normal, orientation)
 	else:
 		emit_signal("block_remove", self)
 	pass

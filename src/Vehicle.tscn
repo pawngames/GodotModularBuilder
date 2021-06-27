@@ -19,7 +19,7 @@ mass = 4.0
 physics_material_override = SubResource( 1 )
 continuous_cd = true
 linear_damp = 0.7
-angular_damp = 0.5
+angular_damp = 0.9
 script = ExtResource( 2 )
 
 [node name="BaseModule" parent="." instance=ExtResource( 1 )]

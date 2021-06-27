@@ -20,9 +20,22 @@ func _process(delta):
 	scale = lerp(scale, Vector3.ONE * zoom, zoom_speed)
 	global_transform.origin = $"../Vehicle".global_transform.origin
 	if Input.is_action_pressed("ui_accel"):
-		rotation.y = lerp_angle(rotation.y, $"../Vehicle".rotation.y + PI/2, .03)
+		#Camera needs better following behavior,
+		rotation.y = lerp_angle(
+			rotation.y, 
+			$"../Vehicle".rotation.y + PI/2, 
+			.2)
+		$CamRefY.rotation.z = lerp_angle(
+			$CamRefY.rotation.z, PI/8, .2)
+			#does nothing, only testing
+		$CamRefY/CamRefZ.rotation.x = lerp_angle(
+			$CamRefY/CamRefZ.rotation.x, 0.0, .2)
 	if Input.is_action_pressed("ui_brake"):
-		rotation.y = lerp_angle(rotation.y, $"../Vehicle".rotation.y - PI/2, .03)
+		rotation.y = lerp_angle(rotation.y, $"../Vehicle".rotation.y - PI/2, .2)
+		$CamRefY.rotation.z = lerp_angle(
+			$CamRefY.rotation.z, $"../Vehicle".rotation.z + PI/8, .2)
+		$CamRefY/CamRefZ.rotation.x = lerp_angle(
+			$CamRefY/CamRefZ.rotation.x, -abs($"../Vehicle".rotation.x), .2)
 	pass
 
 func _unhandled_input(event):

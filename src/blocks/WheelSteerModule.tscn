@@ -30,6 +30,7 @@ suspension_max_force = 24000.0
 damping_compression = 0.3
 damping_relaxation = 0.5
 script = ExtResource( 2 )
+block_mass = 10.0
 
 [node name="Model" type="MeshInstance" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )

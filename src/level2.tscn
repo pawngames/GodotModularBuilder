@@ -29,23 +29,24 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
-margin_right = 210.0
-margin_bottom = 184.0
+margin_right = 346.0
+margin_bottom = 201.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UI/MarginContainer/HBoxContainer"]
-margin_right = 210.0
-margin_bottom = 184.0
+margin_right = 346.0
+margin_bottom = 201.0
 text = "Cross marks the center of gravity
 ---
 Middle Button - camera pan
 Right click - remove block
 Left click - add block
+page up - rotates arrow (for future positiong reference)
 1-4 - select available blocks
 1 - armor block
-2 - engine block
+2 - thruster block
 3 - wheel module (steer)
 4 - wheel module (fixed)
 "
@@ -63,8 +64,11 @@ script = ExtResource( 2 )
 
 [node name="CamRefY" type="Spatial" parent="CamRefX"]
 
-[node name="Camera" type="Camera" parent="CamRefX/CamRefY"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 0 )
+[node name="CamRefZ" type="Spatial" parent="CamRefX/CamRefY"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -4, 0 )
+
+[node name="Camera" type="Camera" parent="CamRefX/CamRefY/CamRefZ"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0598e-07, 4, 7 )
 far = 1500.0
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]

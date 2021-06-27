@@ -12,7 +12,7 @@ func _get_configuration_warning():
 
 signal block_torque_add(direction, pos)
 signal block_impulse_add(direction, pos)
-signal block_add(pos, normal)
+signal block_add(pos, normal, orientation)
 signal block_remove(id)
 
 #indicates this block's force direction, if any
@@ -28,9 +28,9 @@ func _physics_process(delta):
 	#Each module should implement its own logic
 	pass
 
-func _on_SnapArea_indicator_pressed(pos, normal, left):
+func _on_SnapArea_indicator_pressed(pos, normal, orientation, left):
 	if left:
-		emit_signal("block_add", pos, normal)
+		emit_signal("block_add", pos, normal, orientation)
 	else:
 		emit_signal("block_remove", self)
 	pass

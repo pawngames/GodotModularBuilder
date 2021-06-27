@@ -9,6 +9,7 @@
 [node name="BaseModule" type="CollisionShape"]
 shape = SubResource( 1 )
 script = ExtResource( 1 )
+block_mass = 10.0
 
 [node name="Model" type="MeshInstance" parent="."]
 mesh = ExtResource( 3 )

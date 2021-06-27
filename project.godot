@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "SnapArea",
 "language": "GDScript",
-"path": "res://src/IndicatorArea.gd"
+"path": "res://src/SnapArea.gd"
 }, {
 "base": "VehicleWheel",
 "class": "WheelModule",

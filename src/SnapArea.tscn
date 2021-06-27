@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/IndicatorArea.gd" type="Script" id=1]
+[ext_resource path="res://src/SnapArea.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.001, 1.001, 1.001 )
