@@ -8,7 +8,7 @@ signal block_add(pos, normal, orientation)
 signal block_remove(id)
 
 export var wheel_increment:float = 1.0
-export var wheel_max_force:float = 1500.0
+export var wheel_max_force:float = 500.0
 var wheel_spin:float = 0.0
 
 export var block_mass:float = 1.0
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		engine_force -= 10.0
 	else:
 		engine_force = lerp(engine_force, 0.0, 0.1)
-	engine_force = clamp(engine_force, -wheel_max_force/4, wheel_max_force)
+	engine_force = clamp(engine_force, -wheel_max_force/3, wheel_max_force)
 	print(engine_force)
 	pass
 

@@ -16,7 +16,6 @@ func _physics_process(delta):
 			"block_impulse_add", 
 			block_force_direction*engine_force, 
 			get_parent().global_transform.origin.direction_to(global_transform.origin))
-		#emit_signal("block_torque_add", torque_vec*engine_force, transform.origin)
 		$Smoke.emitting = true
 		pass
 	else:

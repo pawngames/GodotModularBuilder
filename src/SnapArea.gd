@@ -22,8 +22,15 @@ func _process(delta):
 	
 	target_rot = normalize_angle_vec(target_rot)
 	
-	$Indicator.rotation.x = lerp_angle($Indicator.rotation.x, target_rot.x, .6)
-	$Indicator.rotation.y = lerp_angle($Indicator.rotation.y, target_rot.y, .6)
+	var a = Quat($Indicator.transform.basis)
+	var b = Quat(target_rot)
+	# Interpolate using spherical-linear interpolation (SLERP).
+	var c = a.slerp(b,0.5) # find halfway point between a and b
+	# Apply back
+	$Indicator.transform.basis = Basis(c)
+	
+	#$Indicator.rotation.x = lerp_angle($Indicator.rotation.x, target_rot.x, .6)
+	#$Indicator.rotation.y = lerp_angle($Indicator.rotation.y, target_rot.y, .6)
 	pass
 
 func _unhandled_key_input(event):
