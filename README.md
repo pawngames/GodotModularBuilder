@@ -9,6 +9,7 @@ What this project got so far:
 - So far, this blocks are implemented:
  - Base module (indicates overall body orientation)
  - Armor Block - Structural body
+ - Armor Slope Block - Same as previous block but sloped
  - Gyro Block - Applies torque to the main body
  - Thruster Block - Applies force to the main body
  - Wheel Body - Godot's wheel body
@@ -16,6 +17,5 @@ What this project got so far:
 
 Future prospects:
  - Iron out some block adding bugs (indicator goes nuts sometimes)
- - So for only adds center impulse, which is not ideal for more realistic physics. For some reason (probably my fault), when adding positioned impulse, body goes to a fixed direction.
  - Controller needs a global direction control, my strongest reference here is Space Engineers.
  - Better camera gimbal follow control, for driving.
