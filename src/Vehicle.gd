@@ -4,14 +4,17 @@ var forces:Dictionary = {}
 var torques:Dictionary = {}
 
 var modules:Array = [
-	"res://src/blocks/ArmorModule.tscn",
-	"res://src/blocks/ThrusterModule.tscn",
-	"res://src/blocks/WheelSteerModule.tscn",
-	"res://src/blocks/WheelModule.tscn",
-	"res://src/blocks/GyroModule.tscn"
+	["res://src/blocks/ArmorModule.tscn", "res://assets/3d/blocks/armor_block.tres"],
+	["res://src/blocks/ThrusterModule.tscn", "res://assets/3d/blocks/thruster_module.tres"],
+	["res://src/blocks/WheelSteerModule.tscn", "res://assets/3d/blocks/wheel_module.tres"],
+	["res://src/blocks/WheelModule.tscn", "res://assets/3d/blocks/wheel_module.tres"],
+	["res://src/blocks/GyroModule.tscn", "res://assets/3d/blocks/gyro_module.tres"],
+	["res://src/blocks/CameraModule.tscn", "res://assets/3d/blocks/camera_module.tres"],
 ]
 
-var selected:String = "res://src/blocks/ArmorModule.tscn"
+var selected:Array = modules[0]
+
+var orientation:Vector3 = Vector3.ZERO
 
 func _ready():
 	$BaseModule.connect("block_torque_add", self, "_block_input")
@@ -47,7 +50,7 @@ func _block_removed(id):
 	pass
 
 func _block_added(pos:Vector3, normal:Vector3, orientation:Vector3):
-	var new_module_scene = load(selected).duplicate(true)
+	var new_module_scene = load(selected[0]).duplicate(true)
 	var new_module = new_module_scene.instance()
 	new_module.translate_object_local(to_local(pos + normal))
 	add_child(new_module)
@@ -55,7 +58,6 @@ func _block_added(pos:Vector3, normal:Vector3, orientation:Vector3):
 	new_module.connect("block_impulse_add", self, "_block_impulse")
 	new_module.connect("block_torque_add", self, "_block_torque")
 	new_module.connect("block_remove", self, "_block_removed")
-	print(orientation)
 	new_module.rotation = orientation
 	mass += new_module.block_mass
 	weight = mass*gravity_scale*9.8
@@ -89,8 +91,10 @@ func _recalculate_cm():
 	pass
 
 func _block_impulse(direction:Vector3, pos:Vector3):
-	apply_central_impulse(direction)
-	#apply_impulse(pos, direction)
+	#apply_central_impulse(direction)
+	apply_impulse(pos, direction)
+	print("-----------------------------")
+	print(str(pos) + "|" + str(direction))
 	pass
 
 func _block_torque(direction:Vector3, pos:Vector3):
@@ -112,3 +116,5 @@ func _unhandled_key_input(event):
 					selected = modules[3]
 				KEY_5:
 					selected = modules[4]
+				KEY_6:
+					selected = modules[5]
