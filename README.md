@@ -1,6 +1,7 @@
 # GodotModularBuilder
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Y5fGko-2Xhw/0.jpg)](https://www.youtube.com/watch?v=Y5fGko-2Xhw)
-Godot modular physics object builder
+
+<p>Godot modular physics object builder
 
 What this project got so far:
 - A Physics Object node structure
