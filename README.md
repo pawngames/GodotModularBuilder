@@ -1,6 +1,9 @@
 # GodotModularBuilder
 Godot modular physics object builder
 
+# FlightAttack
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Y5fGko-2Xhw/0.jpg)](https://www.youtube.com/watch?v=Y5fGko-2Xhw)
+
 What this project got so far:
 - A Physics Object node structure
 - Module mechanic that allow adding and removing blocks and visual indication of positioning (still buggy, working but lacks a global positioning reference for block adding).
